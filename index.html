@@ -5,17 +5,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reynan Tree Cutting and Pruning Services - Cost Estimate Calculator</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #66cdaa;
+            /* Medium aquamarine background */
+            color: white;
+            /* White text */
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            /* White background for card */
+            color: #000000;
+            /* Black text for card */
+        }
+
+        .slider-value {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="container">
-
+    <div class="container">
+        <div class="text-center mb-4">
+            <!-- <h1>Reynan Tree Cutting and Pruning Services</h1> -->
+            <h2>Cost Estimate Calculator</h2>
+        </div>
+        <div class="card mx-auto" style="max-width: 600px;">
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="treeType" class="form-label">Type of Tree</label>
+                        <select class="form-select" id="treeType">
+                            <option value="" disabled selected>Select a tree</option>
+                            <option value="Acacia">Acacia</option>
+                            <option value="Almaciga">Almaciga</option>
+                            <option value="Anahaw">Anahaw</option>
+                            <option value="Apitong">Apitong</option>
+                            <option value="Balete">Balete</option>
+                            <option value="Bamboo">Bamboo</option>
+                            <option value="Banaba">Banaba</option>
+                            <option value="Banana">Banana</option>
+                            <option value="Bitaog">Bitaog</option>
+                            <option value="Camachile">Camachile</option>
+                            <option value="Coconut">Coconut</option>
+                            <option value="Dao">Dao</option>
+                            <option value="Gmelina">Gmelina</option>
+                            <option value="Ipil">Ipil</option>
+                            <option value="Ipil-ipil">Ipil-ipil</option>
+                            <option value="Jackfruit">Jackfruit</option>
+                            <option value="Kamias">Kamias</option>
+                            <option value="Lauan">Lauan</option>
+                            <option value="Mahogany">Mahogany</option>
+                            <option value="Malunggay">Malunggay</option>
+                            <option value="Mango">Mango</option>
+                            <option value="Molave">Molave</option>
+                            <option value="Narra">Narra</option>
+                            <option value="Pili">Pili</option>
+                            <option value="Rambutan">Rambutan</option>
+                            <option value="Santol">Santol</option>
+                            <option value="Tamarind">Tamarind</option>
+                            <option value="Tanguile">Tanguile</option>
+                            <option value="Tisa">Tisa</option>
+                            <option value="Tipolo">Tipolo</option>
+                            <option value="Yakal">Yakal</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="treeHeight" class="form-label">Height of Tree (in feet): <span id="treeHeightValue"
+                                class="slider-value">0</span> ft</label>
+                        <input type="range" class="form-range" id="treeHeight" min="1" max="100" value="0"
+                            oninput="updateTreeHeightValue(this.value)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="treeDiameter" class="form-label">Diameter of Tree (in inches): <span
+                                id="treeDiameterValue" class="slider-value">0</span> inches</label>
+                        <input type="range" class="form-range" id="treeDiameter" min="1" max="50" value="0"
+                            oninput="updateTreeDiameterValue(this.value)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="serviceType" class="form-label">Type of Service</label>
+                        <select class="form-select" id="serviceType">
+                            <option value="cutting">Cutting</option>
+                            <option value="pruning">Pruning</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="additionalNotes" class="form-label">Additional Notes</label>
+                        <textarea class="form-control" id="additionalNotes" rows="3"
+                            placeholder="Any additional information or requests"></textarea>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="urgentService">
+                        <label class="form-check-label" for="urgentService">Urgent Service Required</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Calculate Cost</button>
+                </form>
+            </div>
+        </div>
     </div>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function updateTreeHeightValue(value) {
+            document.getElementById('treeHeightValue').innerText = value;
+        }
+        function updateTreeDiameterValue(value) {
+            document.getElementById('treeDiameterValue').innerText = value;
+        }
+    </script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
 
 </html>
